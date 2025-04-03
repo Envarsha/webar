@@ -23,7 +23,13 @@
 <body>
     <button id="ar-button">Start AR</button>
 
-    <a-scene mindar-image embedded color-space="sRGB" vr-mode-ui="false" device-orientation-permission-ui="false">
+    <!-- WebAR Scene -->
+    <a-scene 
+        mindar-image="imageTargetSrc: targets.mind" 
+        embedded 
+        color-space="sRGB" 
+        vr-mode-ui="false" 
+        device-orientation-permission-ui="false">
         
         <!-- Define Image Target -->
         <a-mindar-image-target mindar-image-target="targetIndex: 0">
@@ -38,8 +44,7 @@
                 loop>
             </a-video>
 
-        
-
+        </a-mindar-image-target>
         
         <!-- Define the Video Asset -->
         <a-assets>
@@ -53,7 +58,7 @@
 
     <script>
         document.getElementById("ar-button").addEventListener("click", () => {
-            document.querySelector("a-scene").enterVR();
+            document.documentElement.requestFullscreen();
         });
     </script>
 
